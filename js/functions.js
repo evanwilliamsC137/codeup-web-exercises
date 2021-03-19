@@ -1,7 +1,7 @@
 "use strict";
 
 //Immediately invoked function expression (IIFE's)
-(function () {
+//(function IIFE {
 
 
     console.log("hello world");
@@ -62,7 +62,7 @@
 //
 //     console.log(coolGuyFunction("skunk"));
 //
-// })();
+
 
 
 
@@ -75,6 +75,12 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
+function sayHello(name) {
+    return "Hello " + name;
+}
+
+alert(sayHello(name));
+
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -83,6 +89,11 @@
  * console.log 'helloMessage' to check your work
  */
 
+var helloMessage = sayHello("Evan Williams");
+
+console.log(helloMessage);
+
+
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
@@ -90,9 +101,12 @@
  * console.
  */
 
+var myName = "Evan Williams";
+console.log(sayHello(myName));
+
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-//var random = Math.floor((Math.random() * 3) + 1);
+var random = Math.floor((Math.random() * 3) + 1);
 
 /**
  * TODO:
@@ -111,6 +125,14 @@
  * different result everytime you refresh the page if you are using the random
  * number)
  */
+function isTwo(x) {
+    return x === 2;
+}
+console.log(isTwo(1));
+console.log(isTwo(2));
+console.log(isTwo(3));
+
+console.log(isTwo(random));
 
 /**
  * TODO:
@@ -124,12 +146,38 @@
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+var calculateTip = function (tip, bill) {
+    return tip * bill;
+}
+
+var tip1 = calculateTip(20, 20)
+console.log("your caclulated tip was: $" + tip1.toFixed(2));
+
+// function calculateTip(per, bill) {
+//     var totalTip = (per/100) * bill;
+//     return totalTip.toFixed(2);
+// }
+// console.log(calculateTip());
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+
+var billAmount = parseFloat(prompt("How much was your bill? "));
+var tipPercent = parseFloat(prompt("What percent would you like to tip? (In decimal)"));
+
+var tipAmount = calculateTip(tipPercent, billAmount);
+var total = billAmount + tipAmount;
+
+alert("Your bill came out to $" + billAmount.toFixed(2) + " . You decided to tip" + (tipPercent * 100) + "%, which will result in $" + total);
+
+
+//alert("$" + (billAmount * 0.09) + " is your tip amount.");
+
+
 
 /**
  * TODO:
@@ -145,3 +193,12 @@
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+
+
+
+function applyDiscount(price, percent) {
+    var discountAmount = price - (price * percent);
+    return discountAmount;
+}
+console.log(applyDiscount(100, .2));
