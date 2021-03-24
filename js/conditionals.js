@@ -19,15 +19,15 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-function analyzeColor(input) {
-    if (input == "blue") {
-        return (input + " is the color of the sky")
-    }else if (input == "red") {
-        return ("Strawberries are " + input);
-    }else {
-        return ("I don't know anything about " + input);
-    }
-}
+// function analyzeColor(input) {
+//     if (input == "blue") {
+//         return (input + " is the color of the sky")
+//     }else if (input == "red") {
+//         return ("Strawberries are " + input);
+//     }else {
+//         return ("I don't know anything about " + input);
+//     }
+// }
 //
 // console.log(analyzeColor("blue"));
 // console.log(analyzeColor("red"));
@@ -47,7 +47,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// analyzeColor(randomColor);
+
 // console.log(analyzeColor(randomColor));
 
 
@@ -68,7 +68,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 //             break;
 //     }
 // }
-
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -78,7 +78,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 
-// var whatsYourFavColor = prompt("What is your favorite color?");
+// var whatsYourFavColor = prompt("What is your favorite color?").toLowerCase();
 //
 // alert(analyzeColor(whatsYourFavColor));
 
@@ -105,37 +105,35 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+// var totalAmount = prompt("What is your total bill?");
+// var luckyNumber = Math.floor(Math.random() * 6);
 
 
+function calculateTotal(luckyNumber, totalAmount) {
+        if (luckyNumber === 0) {
+             return totalAmount;
+        }else if (luckyNumber === 1) {
+            return (totalAmount * .90).toFixed(2);
+        }else if (luckyNumber === 2) {
+            return (totalAmount * .75).toFixed(2);
+        }else if (luckyNumber === 3) {
+            return (totalAmount * .65).toFixed(2);
+        }else if (luckyNumber === 4) {
+            return(totalAmount * .50).toFixed(2);
+        }else if (luckyNumber === 5) {
+            return (totalAmount - totalAmount);
+        }else{
+            return ("IDK my dude");
+        }
 
-// function calculateTotal(luckNumber, totalAmount) {
-//     var totalAmount = prompt("What is your total bill?");
-//     var luckyNumber = Math.floor(Math.random() * 6);
-//
-//         if (luckyNumber === 0) {
-//              return totalAmount;
-//         }else if (luckyNumber === 1) {
-//             return (totalAmount * .90);
-//         }else if (luckyNumber === 2) {
-//             return (totalAmount * .75);
-//         }else if (luckyNumber === 3) {
-//             return (totalAmount * .65);
-//         }else if (luckyNumber === 4) {
-//             return(totalAmount * .50);
-//         }else if (luckyNumber === 5) {
-//             return (totalAmount - totalAmount);
-//         }else{
-//             return ("IDK my dude");
-//         }
-//
-// }
+}
 // console.log(calculateTotal(0, 100));
 // console.log(calculateTotal(1, 100));
-// console.log(calculateTotal(2));
-// console.log(calculateTotal(3));
-// console.log(calculateTotal(4));
-// console.log(calculateTotal(5));
-// console.log(calculateTotal(6));
+// console.log(calculateTotal(2, 100));
+// console.log(calculateTotal(3, 100));
+// console.log(calculateTotal(4, 100));
+// console.log(calculateTotal(5, 100));
+// console.log(calculateTotal(6, 100));
 
 // if (luckyNumber === 0) {
 //     console.log("No Discount");
@@ -163,8 +161,11 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+// //
+// var totalAmount = parseFloat(prompt("What is your total bill?"));
 //
-// var totalAmount = prompt("What is your total bill?");
+// alert("Your lucky number is " + luckyNumber);
+// alert(calculateTotal(luckyNumber, totalAmount));
 
 /**
  * TODO:
@@ -183,28 +184,77 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * HINT: The way we prompt for a value could be improved
  */
 
+//instructor led
+var participate = confirm("would you like to enter a number?");
 
-if (confirm("Would you like to enter a number?")) {
-    var enterNumber = parseFloat(prompt("Give me a number"));
-}else{
-    alert("Nothing? really?");
-}
-
-if (enterNumber % 2 === 0) {
-            alert("that number plus 100 is " + (enterNumber + 100));
+if (participate) {
+    var userNumber = parseFloat(prompt("enter a number"));
+    if (isNaN(userNumber)) {
+        alert(userNumber + " is not a number")
+    }else{
+        if (userNumber % 2 === 0) {
+            alert("that number plus 100 is " + (userNumber + 100));
             alert("That is an even number!");
-}else if(enterNumber % 2 === 1) {
-            alert("that number plus 100 is " + (enterNumber + 100));
+        }else if(userNumber % 2 === 1) {
+            alert("that number plus 100 is " + (userNumber + 100));
             alert("That is an odd number!");
 
         }
 
-if (enterNumber >= 0) {
-        alert("Thats a positive number!");
-}else if (enterNumber < 0) {
-        alert("That is a negative number!");
-}else{
-        alert("not a number my friend");
+        if (userNumber >= 0) {
+            alert("Thats a positive number!");
+        }else if (userNumber < 0) {
+            alert("That is a negative number!");
+        }else{
+            alert("not a number my friend");
 }
-
+    }
+}
+// My attempt
+// if (confirm("Would you like to enter a number?")) {
+//     var enterNumber = parseFloat(prompt("Give me a number"));
+// }else{
+//     alert("Nothing? really?");
+// }
+//
+// if (enterNumber % 2 === 0) {
+//             alert("that number plus 100 is " + (enterNumber + 100));
+//             alert("That is an even number!");
+// }else if(enterNumber % 2 === 1) {
+//             alert("that number plus 100 is " + (enterNumber + 100));
+//             alert("That is an odd number!");
+//
+//         }
+//
+// if (enterNumber >= 0) {
+//         alert("Thats a positive number!");
+// }else if (enterNumber < 0) {
+//         alert("That is a negative number!");
+// }else{
+//         alert("not a number my friend");
+// }
+//other way
+// var numberEntry;
+//
+// function isOddOrEven (numberEntry) {
+//     return (numberEntry % 2 === 0) ? "It is even" : "it is odd.";
+// }
+// function isNegOrPos(numberEntry) {
+//     return (numberEntry > 0) ? "is positive" : "is negative";
+// }
+// function pluss100 (numberEntry) {
+//     return parseFloat(numberEntry + 100);
+// }
+// if participate {
+//     numberEntry = prompt("enter a number");
+//     if (isNaN(numberEntry)) {
+//         alert("not a number");
+//     }else{
+//         alert(isOddOrEven(numberEntry));
+//         alert(isNegOrPos(numberEntry));
+//         alert(pluss100(numberEntry));
+//     }
+// }else{
+//     alert("okay, bye");
+// }
 
