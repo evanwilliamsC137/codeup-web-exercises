@@ -19,6 +19,18 @@ console.log("Sup objects");
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    var person = {
+        firstName: "Rick",
+        lastName: "Sanchez",
+        sayHello: function () {
+            console.log("Hello From " + this.firstName + " " + this.lastName + " Wubbalubbadubdub!");
+        }
+    }
+    console.log(person.firstName);
+    console.log(person.lastName);
+    console.log(person.sayHello());
+
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
