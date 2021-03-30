@@ -32,14 +32,29 @@ console.log("hello peeps!");
 
 //walkthrough
 
-var userInput = 0;
+// var userInput = 0;
 
-while (userInput !== "Never gonna guess it") {
-    userInput = parseFloat(prompt("Enter a number between 1 and 50"));
-    if (userInput % 2 === 1 || (userInput > 0 && userInput < 50)) {
+// while (userInput !== "Never gonna guess it") {
+//     userInput = parseFloat(prompt("Enter a number between 1 and 50"));
+//     if (userInput % 2 === 1 || (userInput > 0 && userInput < 50)) {
+//         break;
+//     }
+// }
+
+//better walkthrough
+
+var oddNumber = parseInt(prompt("Give me an odd number between 1-50"));
+
+while (true) {
+    if (oddNumber % 2 === 1 || (oddNumber > 0 && oddNumber < 50)){
         break;
     }
+    oddNumber = parseInt(prompt("Give me an odd number between 1-50"));
 }
+
+
+
+
 for (var i = 1; i < 50; i+=2) {
     if (i === userInput) {
         console.log("yikes wrong number");
