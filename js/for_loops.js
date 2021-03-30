@@ -92,6 +92,6 @@
 
 //exercise 4
 
-for (var i = 100; i > 0; i = i - 5) {
-    console.log(i);
-}
+// for (var i = 100; i > 0; i = i - 5) {
+//     console.log(i);
+// }
