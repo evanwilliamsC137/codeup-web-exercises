@@ -20,14 +20,15 @@ console.log("Sup objects");
      */
 
     var person = {
-        firstName: "Rick",
-        lastName: "Sanchez",
+        firstName: "Evan",
+        lastName: "Williams",
         sayHello: function () {
             console.log("Hello From " + this.firstName + " " + this.lastName + " Wubbalubbadubdub!");
         }
     }
     console.log(person.firstName);
     console.log(person.lastName);
+    person.sayHello();
 
 
 
@@ -41,7 +42,7 @@ console.log("Sup objects");
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    console.log(person.sayHello());
+
 
 
     /** TODO:
@@ -117,6 +118,9 @@ console.log("Sup objects");
     // console.log(discount('Cameron'));
     // console.log(discount('Ryan'));
     // console.log(discount('George'));
+
+
+
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -208,18 +212,33 @@ console.log("Sup objects");
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    function createBook(title, author) {
-        var authorName = author.splice(" ")
+    // function createBook(title, author) {
+    //     var authorName = author.splice(" ")
+    //     return {
+    //         title: title,
+    //         author: {
+    //             firsName: authorName[0],
+    //             lastName: authorName[authorName.length - 1]
+    //         }
+    //     }
+    //     console.log("Title: " + this.title);
+    //     console.log("Author: " + author.author);
+    // }
+
+    function createBook(title, authorFirstName, authorLastName) {
         return {
             title: title,
             author: {
-                firsName: authorName[0],
-                lastName: authorName[authorName.length - 1]
+                firstName: authorFirstName,
+                lastName: authorLastName
             }
-        }
-        console.log("Title: " + title.title);
-        console.log("Author: " + author.author);
+        };
     }
+    console.log(createBook());
+
+
+    books.push(createBook("cats", "meow", "meow"));
+    console.log(books);
 
 
 })();
