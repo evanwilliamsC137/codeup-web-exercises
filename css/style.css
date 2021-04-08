@@ -1,4 +1,51 @@
-.fancy-header {
-    color: purple; /* single line comment */
-    text-decoration: underline;
+
+body {
+    font-family: Helvetica Neue, bold, sans-serif;
+    background: lightgrey;
+    /*background-image: url("../img/pexels-john-petalcurin-2115257.jpg");*/
 }
+
+/*custom font*/
+/*@font-face {*/
+/*    font-family: "Ubuntu";*/
+/*    src: url("");*/
+/*    font-weight: bold;*/
+/*}*/
+
+
+.fancy-header {
+    color: #663399;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 300%;
+}
+
+h2 {
+    color: darkblue;
+}
+
+/*.bottom-border {*/
+/*    border-bottom: 1px solid black;*/
+/*}*/
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: upper-alpha;
+}
+
+/*descendant selector*/
+/*section table td {*/
+/*    color: hotpink;*/
+/*}*/
+
+/*psuedo class*/
+a:link {
+    color: hotpink;
+}
+
+a:hover {
+    color: darkturquoise;
+}
+
