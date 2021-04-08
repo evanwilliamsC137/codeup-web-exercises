@@ -2,7 +2,11 @@
 body {
     font-family: Helvetica Neue, bold, sans-serif;
     background: lightgrey;
-    /*background-image: url("../img/pexels-john-petalcurin-2115257.jpg");*/
+    background-image: url("../img/code up chevron.jpeg");
+    background-size: 80px;
+    background-repeat: repeat-y;
+    background-position: top right;
+    margin-top: 5px;
 }
 
 /*custom font*/
@@ -15,24 +19,35 @@ body {
 
 .fancy-header {
     color: #663399;
-    text-decoration: underline;
     text-align: center;
     font-size: 300%;
 }
 
 h2 {
     color: darkblue;
+    text-decoration: underline;
 }
 
 /*.bottom-border {*/
 /*    border-bottom: 1px solid black;*/
 /*}*/
-ul {
+ul>li {
     list-style: square;
+    padding: 10px;
 }
 
-ol {
+ol>li {
     list-style: upper-alpha;
+    padding: 10px;
+}
+
+table, td, th {
+    padding: 50px;
+    text-decoration: underline;
+}
+
+main>p>em {
+    border: solid;
 }
 
 /*descendant selector*/
@@ -49,3 +64,6 @@ a:hover {
     color: darkturquoise;
 }
 
+a:active {
+    color: darkgreen;
+}
