@@ -24,6 +24,7 @@ fieldset {
     box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     background-color: white;
     padding: 1em;
+    border: none;
     /* There must be 1em between the content and the border of this element */
     /* It should have no border */
     /* Its background should be white */
