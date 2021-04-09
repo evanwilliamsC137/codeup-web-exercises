@@ -5,3 +5,37 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
+
+.message-info {
+    color: rebeccapurple;
+    background-color: lightblue;
+    padding: .5em;
+    border: solid lightgrey;
+    border-radius: 5px;
+    margin: .5em;
+}
+.message-success {
+    color: green;
+    background-color: aquamarine;
+    padding: .5em;
+    border: solid lightgrey;
+    border-radius: 5px;
+    margin: .5em;
+}
+.message-warning {
+    color: goldenrod;
+    background-color: yellow;
+    padding: .5em;
+    border: solid lightgrey;
+    border-radius: 5px;
+    margin: .5em;
+}
+.message-error {
+    color: darkred;
+    background-color: pink;
+    padding: .5em;
+    border: solid lightgrey;
+    border-radius: 5px;
+    margin: .5em;
+}
+
