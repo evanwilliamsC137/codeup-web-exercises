@@ -34,8 +34,8 @@ a {
 }
 
 .nav {
-    display: inline;
     list-style-type: none;
+    padding: 0;
     margin: 0;
 }
 .nav-item {
@@ -74,24 +74,22 @@ a {
 }
 
 .profile-details {
-    /*position: relative;*/
     float: left;
-    width: calc(100% - 75%);
+    width: calc(25% - 1em);
     margin-left: .5em;
     margin-right: .5em;
 }
 
 .who-to-follow {
-    float: right;
-    width: calc(100% - 75%);
+    float: left;
+    width: calc(25% - 1em);
     margin-left: .5em;
     margin-right: .5em;
 }
 
 .timeline {
-    /*position: relative;*/
     float: left;
-    width: calc(100% - 58%);
+    width: calc(50% - 1em);
     margin-left: .5em;
     margin-right: .5em;
 }
@@ -103,9 +101,9 @@ a {
 .media {
     width: 100%;
     background-color: var(--light-bg);
-    border-bottom: 1px var(--separator-color);
     padding: .5em;
     overflow: auto;
+    border-bottom: var(--separator-color) 1px solid;
 }
 
 .media-image {
