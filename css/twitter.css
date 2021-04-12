@@ -74,26 +74,24 @@ a {
 }
 
 .profile-details {
-    position: relative;
+    /*position: relative;*/
     float: left;
-    width: calc(100% - 25%);
+    width: calc(100% - 75%);
     margin-left: .5em;
     margin-right: .5em;
 }
 
 .who-to-follow {
-    position: relative;
-    float: top;
-    width: calc(100% - 25%);
+    float: right;
+    width: calc(100% - 75%);
     margin-left: .5em;
     margin-right: .5em;
-    top: 10px;
 }
 
 .timeline {
-    position: relative;
+    /*position: relative;*/
     float: left;
-    width: calc(100% - 50%);
+    width: calc(100% - 58%);
     margin-left: .5em;
     margin-right: .5em;
 }
