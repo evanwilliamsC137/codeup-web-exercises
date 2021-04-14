@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+#container {
+    background-color: #848487;
+    display: flex;
+    flex-direction: row;
+}
+
+h3 {
+    margin: auto;
+    background-color: lightgreen;
+}
+
+#left-stage {
+    list-style: none;
+    background-color: #3B94D9;
+}
+
+#right-stage {
+    list-style: none;
+    background-color: #0fb784;
+}
