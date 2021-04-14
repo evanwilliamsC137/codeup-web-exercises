@@ -1,24 +1,81 @@
 * {
     box-sizing: border-box;
 }
-
-#container {
-    background-color: #848487;
-    display: flex;
-    flex-direction: row;
+body {
+    margin: 0;
+}
+nav {
+    background: #808080;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* made unordered list a flex container */
+    align-content: center;
 }
 
-h3 {
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: Verdana;
+    display: inline-block; /* inline-block to increase clickable area beyond the text */
+    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+}
+nav a:hover {
+    background: black;
+}
+nav ul li:nth-child(5) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    font-size: 1em;
     margin: auto;
-    background-color: lightgreen;
+    display: flex;
+    justify-content: start;
 }
 
-#left-stage {
-    list-style: none;
-    background-color: #3B94D9;
-}
+/** {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    font-family: 'Montserrat', sans-serif;*/
+/*}*/
 
-#right-stage {
-    list-style: none;
-    background-color: #0fb784;
-}
+/*nav {*/
+/*    background: #808080;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*nav a {*/
+/*    color: black;*/
+/*    text-decoration: none;*/
+/*}*/
+
+
+/*footer nav {*/
+/*    display: flex;*/
+/*}*/
+
+/*footer ul {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    padding: .5em;*/
+/*}*/
+
+/*.first-list li {*/
+/*    padding-left: .5em;*/
+/*}*/
+
+/*.logo {*/
+/*    padding-top: .2em;*/
+/*    padding-bottom: .2em;*/
+/*    font-size: 3em;*/
+/*}*/
+
+/*a:hover {*/
+/*    color: blue;*/
+/*}*/
