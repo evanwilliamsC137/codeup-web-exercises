@@ -1,40 +1,52 @@
 * {
     box-sizing: border-box;
 }
-body {
+body, html {
     margin: 0;
+    padding: 0;
 }
-nav {
-    background: #808080;
+.top-nav {
+    display: flex;
+    background-color: #848487;
+    height: 58px;
 }
 ul {
-    list-style: none;
+    display: flex;
+    width: 100%;
+}
+.nav {
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* made unordered list a flex container */
-    align-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
-
-
-nav a {
+.nav-item {
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+}
+#leftFollow {
+    margin-left: auto;
+}
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    left: calc(50% - 60px);
+}
+.link-text {
+    font-family: 'Work Sans', sans-serif;
+}
+.nav-link {
     text-decoration: none;
     color: black;
-    font-family: Verdana;
-    display: inline-block; /* inline-block to increase clickable area beyond the text */
-    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
-nav a:hover {
-    background: black;
-}
-nav ul li:nth-child(5) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    font-size: 1em;
-    margin: auto;
-    display: flex;
-    justify-content: start;
+.nav-item:hover {
+    background-color: blue;
 }
 
 /** {*/
