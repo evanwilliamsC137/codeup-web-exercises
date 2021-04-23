@@ -41,7 +41,7 @@
 
         // TODO: Set the text color of subHeader to blue
 
-        subHeader.style.color = 'blue'
+        subHeader.style.color = 'blue';
 
         // TODO: Uncomment the next line and get all list items
 
@@ -49,13 +49,19 @@
 
         // TODO: Set text color on every other list item to grey
 
-        listItems[0].style.color = 'grey'
-        listItems[2].style.color = 'grey'
-        listItems[4].style.color = 'grey'
+        for (var i = 0; i < listItems.length; i++) {
+            if (listItems[i].getAttribute('data-dbid') === '1') {
+                listItems[i].style.color = 'blue';
+            }
+            if (i % 2 !== 0) {
+                listItems[i].style.color = "grey";
+            }
+        }
+
 
         // TODO: Set text color of li with dbid = 1 to blue
 
-        listItems[0].style.color = "blue"
+
 
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
