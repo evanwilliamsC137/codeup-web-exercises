@@ -9,8 +9,8 @@
         <h1 id="header" class="headerClass">Header 1</h1>
         <p id="paragraph" class="p-class">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aperiam commodi, delectus dolore dolorem ducimus ea earum est iure labore mollitia, nostrum quasi quia quibusdam reprehenderit, sequi temporibus!</p>
         <ul id="unordered" class="listClass">
-            <li>check</li>
-            <li>my</li>
+            <li class="codeup">check</li>
+            <li class="codeup">my</li>
             <li>list</li>
         </ul>
     </div>
@@ -23,12 +23,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/jquery-3.6.0.js"></script>
 <script>
-    $(document).ready(function() {
-        alert( 'The DOM has finished loading!' );
-    });
+    // $(document).ready(function() {
+    //     alert( 'The DOM has finished loading!' );
+    // });
+    //ID selector
+    // var content = $("#header").html();
+    // alert(content);
 
-    var content = $("#header").html();
-    alert(content);
+    //Class selector
+    // $(".codeup").css("border", "solid red 1px");
+
+    // $("li").css("font-size", "20px");
+    //
+    // $("h1, p, li").css("color", "yellow");
 
 </script>
 
