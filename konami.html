@@ -15,15 +15,12 @@
 <script src="js/jquery-3.6.0.js"></script>
 <script>
     "use strict";
-
-
     var neededkeys = [38,38,40,40,37,39,37,39,66,65,13],
         started = false,
         count = 0;
     $(document).keydown(function(event) {
-
         var key = event.keyCode;
-
+        console.log(key);
         if (!started) {
             if (key === 38) {
                 started = true;
@@ -37,8 +34,6 @@
             }
             if (count === 11) {
                 reset();
-                // Do stuff here
-
                 activateCheats();
             }
         } else {
@@ -49,12 +44,8 @@
         $('body').css('background-image', 'url(img/flying-head.png)');
         $('h1').html('I like What you got!').css('color', 'red');
         $('main').html('Good Job!').css('color', 'red');
-
-
         alert("You have 30 lives!");
     }
-
-
     function reset() {
         started = false;
         count = 0;
