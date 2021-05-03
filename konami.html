@@ -6,9 +6,10 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="text-center">Konami Code</h1>
+<h1 class="text-center">Konami Riiiiick</h1>
 <main class="text-center">
-    <img id="meme" src="img/Konami_meme.jpeg">
+    <h2>Enter the code to Get Schwifty!</h2>
+    <img id="meme" src="img/get-schwifty.jpeg">
 </main>
 
 <script src="js/jquery-3.6.0.js"></script>
@@ -36,7 +37,8 @@
             }
             if (count === 11) {
                 reset();
-                // Do your stuff here
+                // Do stuff here
+
                 activateCheats();
             }
         } else {
@@ -44,8 +46,9 @@
         }
     });
     function activateCheats() {
-        $('h1').html('Success!');
-        $('main').html('Nailed it!');
+        $('body').css('background-image', 'url(img/flying-head.png)');
+        $('h1').html('I like What you got!').css('color', 'red');
+        $('main').html('Good Job!').css('color', 'red');
 
 
         alert("You have 30 lives!");
