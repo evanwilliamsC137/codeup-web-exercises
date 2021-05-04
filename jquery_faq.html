@@ -27,11 +27,11 @@
     <dd class="invisible">The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. Learn more about national park designations. See the complete list of National Park Service units and related areas by type and number.</dd>
 
     <dt>What is the largest national park site? Smallest?</dt>
-    <dd class="invisible">This is the answer to the third question</dd>
-
-    <dt>This is the third question</dt>
     <dd class="invisible">Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres
         Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
+
+    <dt>Most visited national park?</dt>
+    <dd class="invisible">The Great Smokey Mountains National Park</dd>
 
     <dt>How many people visit the national parks?</dt>
     <dd class="invisible">Total recreation visitors to the national parks in 2019: 327,516,619.</dd>
@@ -40,6 +40,31 @@
     <dd class="invisible">FY 2017 Enacted: $2.932 billion</dd>
 </dl>
 <button id="show-answers">Show Answers</button>
+
+<h3>Yosemite</h3>
+<ul id="yosemite-list">
+    <li>Glowing rock formations (half dome)</li>
+    <li>Has over 400 different species</li>
+    <li>The American Indians who live in Yosemite are called the Ahwahneechee Indians. Their traditional homes look like teepees, but are actually made of incense-cedar bark.</li>
+    <li>Yosemite Park was the first area of land set aside by the US government for preservation and protection.</li>
+</ul>
+
+<h3>Yellowstone</h3>
+<ul id="yellowstone-list">
+    <li>Yellowstone encompasses 3,472 square miles (2,221,766 acres) which makes it larger than Rhode Island and Delaware combined.</li>
+    <li>There are more than 10,000 hydrothermal features in Yellowstone. The four types of thermal features are geysers, hot springs, mud pots, and fumaroles.</li>
+    <li>Yellowstone is home to more than 500 active geysers (more than half the world’s geysers)</li>
+    <li>Yellowstone Lake has 131.7 sq. miles of surface area and 141 miles of shoreline. It is the largest high elevation lake in North America.</li>
+</ul>
+
+<h3>Glacier national park</h3>
+<ul id="glacier-list">
+    <li>Established as a park on May 11, 1910</li>
+    <li>Square miles: 1,583</li>
+    <li>Number of species of plants: 1,132 vascular and 858 non-vascular</li>
+    <li>Number of species of birds: 276 documented</li>
+</ul>
+<button id="yellow-button">Turn list elements yellow</button>
 
 
 <script src="js/jquery-3.6.0.js"></script>
@@ -53,6 +78,18 @@
     $('dt').click(function () {
         $(this).toggleClass('highlight');
     });
+
+    $('#yellow-button').click(function() {
+            $('#yosemite-list').children().last().css('background-color', '#FF0');
+            $('#yellowstone-list').children().last().css('background-color', '#FF0');
+            $('#glacier-list').children().last().css('background-color', '#FF0');
+    });
+
+    $('h3').click(function () {
+        $('h3').next().css('font-weight', 'bold');
+    });
+
+
 </script>
 </body>
 </html>
