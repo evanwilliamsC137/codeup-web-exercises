@@ -1,0 +1,17 @@
+.invisible {
+    visibility: hidden;
+}
+
+.highlight {
+    background-color: #e90224;
+}
+
+dl, dt, dd {
+    padding: .5em;
+    margin: auto;
+}
+
+dd {
+    background-color: deepskyblue;
+}
+
