@@ -98,21 +98,12 @@
 
 <button id="yellow-button">Turn list elements yellow</button>
 
-<div id="container">
-
-    <div id="left-frame" class="frame">
-        <img id="pic1" src="img/inline_js.jpeg">
-    </div>
-
-    <div id="middle-frame" class="frame">
-        <img id="pic2" src="img/pexels-photo-417074.jpeg">
-    </div>
-
-    <div id="right-frame" class="frame">
-        <img id="pic3" src="img/pexels-photo-545964.jpeg">
-    </div>
-
+<div class="container">
+    <div class="pic1"></div>
+    <div class="pic2"></div>
+    <div class="pic3"></div>
 </div>
+
 <div class="buttons">
     <button id="btn1">Button 1</button>
     <button id="btn2">Button 2</button>
@@ -121,18 +112,24 @@
 
 <script src="js/jquery-3.6.0.js"></script>
 <script>
+    $('#btn1').on({
+        'click': function(){
+           $('.pic1').toggleClass('pic2');
+        }
+    });
 
-    $('btn1').click(function () {
-        $('#pic1').attr('src', 'img/pexels-photo-417074.jpeg')
-    })
+    $('#btn2').on({
+        'click': function(){
+            $('.pic2').toggleClass('pic1');
+        }
+    });
 
-    $('btn2').click(function () {
+    $('#btn3').on({
+        'click': function(){
 
-    })
+        }
+    });
 
-    $('btn3').click(function () {
-
-    })
 
     $('#show-answers').click(function () {
         $('dd').toggleClass('invisible');
@@ -149,9 +146,13 @@
         $('#glacier-list').children().last().css('background-color', '#FF0');
     });
 
+    // $('h3').click(function () {
+    //     $(this).next().first().css('font-weight', 'bold');
+    // });
+
     $('h3').click(function () {
-        $(this).next().first().css('font-weight', 'bold');
-    });
+        $(this).next().children().css('font-weight', 'bold');
+    })
 
     $('li').click(function () {
         $(this).parent().children().first().css('color', 'blue');
