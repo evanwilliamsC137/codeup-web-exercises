@@ -19,7 +19,7 @@ h1, p {
     position: fixed;
     animation-name: square;
     animation-duration: 10s;
-    animation-timing-function: ease;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-fill-mode: forwards;
