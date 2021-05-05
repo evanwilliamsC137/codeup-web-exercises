@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Methods Bonus</title>
+    <link rel="stylesheet" href="css/faq-bonus.css">
+</head>
+<body>
+<h1>jQuery Traversing</h1>
+<div id="container">
+    <div id="picture1" class="picture"><img src="img/inline_js.jpeg"><button type="button" id="button1">Swap</button></div>
+    <div id="picture2" class="picture"><img src="img/pexels-photo-417074.jpeg"><button type="button" id="button2">Swap</button></div>
+    <div id="picture3" class="picture"><img src="img/pexels-photo-545964.jpeg"><button type="button" id="button3">Swap</button></div>
+</div>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function (){
+
+        $("#button1").click(function(){
+            var nextImage = $(this).parent().next().children().first();
+            var nextImageSrc = nextImage.attr('src');
+            var thisSrc = $(this).prev().attr('src');
+            $(this).prev().attr('src', nextImageSrc);
+            nextImage.attr('src', thisSrc);
+        });
+
+        $("#button2").click(function(){
+            var randomNumber = Math.floor(Math.random()*2);
+            var nextImage = $(this).parent().next().children().first();
+            var nextImageSrc = nextImage.attr('src');
+            var previousImage = $(this).parent().prev().children().first();
+            var previousImageSrc = previousImage.attr('src');
+            var thisImage = $(this).prev();
+            var thisSrc = thisImage.attr('src');
+            if (randomNumber === 0){
+                previousImage.attr('src', thisSrc);
+                thisImage.attr('src', previousImageSrc);
+            } else {
+                $(this).prev().attr('src', nextImageSrc);
+                nextImage.attr('src', thisSrc);
+            }
+        });
+
+        $("#button3").click(function(){
+            var previousImage = $(this).parent().prev().children().first();
+            var previousImageSrc = previousImage.attr('src');
+            var thisImage = $(this).prev();
+            var thisSrc = thisImage.attr('src');
+            previousImage.attr('src', thisSrc);
+            thisImage.attr('src', previousImageSrc);
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -98,38 +98,10 @@
 
 <button id="yellow-button">Turn list elements yellow</button>
 
-<div class="container">
-    <div class="pic1"></div>
-    <div class="pic2"></div>
-    <div class="pic3"></div>
-</div>
 
-<div class="buttons">
-    <button id="btn1">Button 1</button>
-    <button id="btn2">Button 2</button>
-    <button id="btn3">Button 3</button>
-</div>
 
 <script src="js/jquery-3.6.0.js"></script>
 <script>
-    $('#btn1').on({
-        'click': function(){
-           $('.pic1').toggleClass('pic2');
-        }
-    });
-
-    $('#btn2').on({
-        'click': function(){
-            $('.pic2').toggleClass('pic1');
-        }
-    });
-
-    $('#btn3').on({
-        'click': function(){
-
-        }
-    });
-
 
     $('#show-answers').click(function () {
         $('dd').toggleClass('invisible');
@@ -141,14 +113,10 @@
     });
 
     $('#yellow-button').click(function () {
-        $('#yosemite-list').children().last().css('background-color', '#FF0');
-        $('#yellowstone-list').children().last().css('background-color', '#FF0');
-        $('#glacier-list').children().last().css('background-color', '#FF0');
+        $('ul').each(function (){
+            $(this).children().last().css('background','yellow');
+        })
     });
-
-    // $('h3').click(function () {
-    //     $(this).next().first().css('font-weight', 'bold');
-    // });
 
     $('h3').click(function () {
         $(this).next().children().css('font-weight', 'bold');
