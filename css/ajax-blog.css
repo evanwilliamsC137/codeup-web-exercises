@@ -1,0 +1,38 @@
+* {
+    background-color: #cb5516;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+
+
+header {
+    width: 100%;
+    max-width: 100%;
+    position: fixed;
+    z-index: 999;
+    background: transparent;
+}
+.jumbotron {
+    background-color: rgba(0,0,0,0.7);
+    background-size: cover;
+    height: 200px;
+}
+.books {
+    /*background: #afeeee;*/
+    border: 5px solid black;
+    border-radius: 25px;
+}
+
+nav a {
+    font: 1.2em/1em sans-serif;
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+}
+th {
+    padding-right: 1em;
+}

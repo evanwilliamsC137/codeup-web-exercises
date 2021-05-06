@@ -5,7 +5,7 @@
     <title>Ajax blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/ajax-store.css">
+    <link rel="stylesheet" href="css/ajax-blog.css">
 </head>
 <body>
 
@@ -18,29 +18,35 @@
     <div class="wrapper">
         <div class="jumbotron jumbotron-fluid bg-transparent">
             <div class="container-fluid opaque-bg letter-opacity ">
-                <h1>My Tool Store</h1>
-                <p>Where being a tool is useful</p>
+                <h1>My Tool Blog</h1>
+                <p>Talk about tools with me!</p>
             </div>
         </div>
-
-
-        <table id="products">
-            <thead>
-            <tr class="d-inline-flex justify-content-between">
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Categories</th>
-            </tr>
-            </thead>
-            <tbody id="insertProducts"></tbody>
-        </table>
-        <button id="refresh" class="float-right bg-light">Refresh</button>
+        <div id="posts"></div>
     </div>
-    <div id="posts"></div>
+
 </header>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script></script>
+<script>
+    function doStuff() {
+        $.ajax("data/blog.json").done(function(blog) {
+            console.log(blog);
+            for (var j = 0;j < blog.length; j++) {
+                var htmlStr = "<div id='blog-" + (j + 1) + "' class='books'>";
+                htmlStr += "<h3>" + blog[j].title + "</h3>";
+                htmlStr += "<p>" + blog[j].content + "</p>";
+                htmlStr += "<h3>" + blog[j].categories + "</h3>";
+                htmlStr += "<p>" + blog[j].date + "</p>";
+                htmlStr += "</div>";
+                $("#posts").append(htmlStr);
+            }
+        })
+    }doStuff();
+
+
+
+
+</script>
 </body>
 </html>
