@@ -30,5 +30,12 @@
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "philips head",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
     }
 ]

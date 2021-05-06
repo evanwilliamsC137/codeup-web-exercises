@@ -24,7 +24,7 @@
 
         <table id="products">
             <thead>
-            <tr class="d-inline-flex justify-content-between">
+            <tr>
                 <th>Title</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -43,12 +43,24 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    var getJson = $.ajax("data/inventory.json");
-    console.log(getJson);
 
-    $.ajax("data/inventory.json").done(function(data) {
-        $('#insertProducts').append('<td>' + data +'</td>')
-    })
+
+    function doStuff() {
+        $('#insertProducts').html('');
+        $.ajax("data/inventory.json").done(function(data) {
+            console.log(data);
+            for (var j = 0;j < data.length; j++) {
+                var htmlStr = "<tr id='data-" + (j + 1) + "' class='books'>";
+                htmlStr += "<td>" + data[j].title + "</td>";
+                htmlStr += "<td>" + data[j].quantity + "</td>";
+                htmlStr += "<td>" + data[j].price + "</td>";
+                htmlStr += "<td>" + data[j].categories + "</td>";
+                htmlStr += "</div>";
+                $("#insertProducts").append(htmlStr);
+            }
+        })
+    }$('#refresh').click(doStuff);
+
 
 
     // TODO: Take the data from inventory.json and append it to the products table

@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax-store.css">
 </head>
 <body>
-<div id="posts"></div>
+
+<header class="container">
+    <nav class="wrapper">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="wrapper">
+        <div class="jumbotron jumbotron-fluid bg-transparent">
+            <div class="container-fluid opaque-bg letter-opacity ">
+                <h1>My Tool Store</h1>
+                <p>Where being a tool is useful</p>
+            </div>
+        </div>
+
+
+        <table id="products">
+            <thead>
+            <tr class="d-inline-flex justify-content-between">
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+            </thead>
+            <tbody id="insertProducts"></tbody>
+        </table>
+        <button id="refresh" class="float-right bg-light">Refresh</button>
+    </div>
+    <div id="posts"></div>
+</header>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script></script>
 </body>
 </html>
