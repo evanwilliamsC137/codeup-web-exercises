@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox maps api</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<h1>Mapbox maps api</h1>
+<div id='map' style='width: 600px; height: 500px;'></div>
+
+<!--button for click event-->
+<!--<label for="input">Type an address:</label>-->
+<!--<input type="text" id="input">-->
+<!--<button id="btn">Click me to move someplace!</button>-->
+
+<script src="js/jquery-3.6.0.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script>
+
+    // //Click event that uses geocode function to grab location info
+    // // $("#btn").click(function() {
+    // //     var userInput = $("#input").val();
+    //     geocode("San Antonio", MAPBOX_ACCESS_TOKEN).then(function (info) {
+    //         console.log(info);
+    //         var newCenter = {
+    //             lng: info[0],
+    //             lat: info[1]
+    //         };
+    //         marker.setLngLat(newCenter);
+    //         // popup.setHTML('<h3 class="font">' + userInput +  '</h3>');
+    //         map.flyTo({center: newCenter});
+    //     });
+    // // });
+
+
+
+
+<!--    Map variable-->
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [-98.4951, 29.4246], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
+
+    //Marker Variable
+    var marker = new mapboxgl.Marker({
+        draggable: true,
+        color: 'green',
+    })
+        .setLngLat([-98.46651280016016, 29.484469133334155])
+        .addTo(map)
+        .setDraggable(true);
+
+    // marker drag popup29.484469133334155, -98.46651280016016
+    // marker.on("dragend", function () {
+    //     alert(marker.getLngLat());
+    //     $('h3').html(marker.getLngLat().toString())
+    // })
+
+    // prettier display marker drag
+    // marker.on('dragend', function(){
+    //     var coords = marker.getLngLat().toString();
+    //     var paren1 = coords.indexOf('(');
+    //     var comma = coords.indexOf(',');
+    //     var paren2 = coords.indexOf(')');
+    //     var long = coords.slice(paren1 + 1, comma);
+    //     var lat = coords.slice(comma + 1, paren2);
+    //     long = parseFloat(long).toFixed(2);
+    //     lat = parseFloat(lat).toFixed(2);
+    //     //$("h1").html(coords);
+    //     $("h3").before("<h4>You dropped your marker at:</h4>");
+    //     $("h3").html("longitude " + long + ", latitude " + lat);
+    // });
+
+    //    pop up variable
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+        .setHTML("<h3>Bistro9</h3>")
+        .setMaxWidth("300px")
+        .addTo(map);
+
+    marker.setPopup(popup);
+    // popup.addClassName('popup-font');
+
+    //geocode function
+    geocode("San Antonio", MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results);
+    })
+
+    reverseGeocode({lng:-98.4951, lat:29.4246}, MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results);
+    })
+
+
+
+</script>
+</body>
+</html>

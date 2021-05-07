@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapbox 2</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<!--// Mini Exercise 2-->
+<!--// TODO: Create an HTML file called mapbox-2.html. In this file, create a map centered-->
+<!--// TODO: on New York with a marker on the Statue of Liberty. Add a popup to the Statue of-->
+<!--// TODO: Liberty marker with the text "Statue of Liberty".-->
+<!--// *BONUS - when the marker is dragged and released, display the coordinates in an H1.-->
+<!--New York = [-74.2179, 43.2994]-->
+<!--Statue of Liberty = [-74.0445, 40.6892]-->
+<h1>Mapbox-2</h1>
+<div id='map' style='width: 600px; height: 500px;'></div>
+
+<script src="js/jquery-3.6.0.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [-74.2179, 43.2994], // starting position [lng, lat]
+        zoom: 5 // starting zoom
+    });
+
+
+    var marker = new mapboxgl.Marker({
+        draggable: true,
+        color: 'green',
+    })
+        .setLngLat([-74.0445, 40.6892])
+        .addTo(map)
+        .setDraggable(true);
+
+    // marker drag popup
+    // marker.on("dragend", function () {
+    //     alert(marker.getLngLat());
+    //     $('h3').html(marker.getLngLat().toString())
+    // })
+
+    // prettier display
+    marker.on('dragend', function(){
+        var coords = marker.getLngLat().toString();
+        var paren1 = coords.indexOf('(');
+        var comma = coords.indexOf(',');
+        var paren2 = coords.indexOf(')');
+        var long = coords.slice(paren1 + 1, comma);
+        var lat = coords.slice(comma + 1, paren2);
+        long = parseFloat(long).toFixed(2);
+        lat = parseFloat(lat).toFixed(2);
+        //$("h1").html(coords);
+        $("h3").before("<h4>You dropped your marker at:</h4>");
+        $("h3").html("longitude " + long + ", latitude " + lat);
+    });
+
+    //    pop ups
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+        .setHTML("<h3>Statue of Liberty</h3>")
+        .setMaxWidth("300px")
+        .addTo(map);
+
+    marker.setPopup(popup);
+    // popup.addClassName('popup-font');
+
+    //geocode function
+    geocode("San Antonio", MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results);
+    })
+
+    reverseGeocode({lng:-98.4951, lat:29.4246}, MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results);
+    })
+
+
+</script>
+</body>
+</html>
