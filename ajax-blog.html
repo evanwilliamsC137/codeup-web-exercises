@@ -7,25 +7,32 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/ajax-blog.css">
 </head>
-<body>
+<body class="container">
 
 <header class="container">
-    <nav class="wrapper">
+    <nav>
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
     </nav>
-    <div class="wrapper">
-        <div class="jumbotron jumbotron-fluid bg-transparent">
-            <div class="container-fluid opaque-bg letter-opacity ">
-                <h1>My Tool Blog</h1>
-                <p>Talk about tools with me!</p>
-            </div>
-        </div>
-        <div id="posts"></div>
-    </div>
+
 
 </header>
+
+
+<main>
+    <div>
+        <div class="jumbotron jumbotron-fluid bg-transparent">
+            <div>
+                <h1>My Tool Blog</h1>
+                <h2>Talk about tools with me!</h2>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="posts"></div>
+    </div>
+</main>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
@@ -33,7 +40,7 @@
         $.ajax("data/blog.json").done(function(blog) {
             console.log(blog);
             for (var j = 0;j < blog.length; j++) {
-                var htmlStr = "<div id='blog-" + (j + 1) + "' class='books'>";
+                var htmlStr = "<div id='blog-" + (j + 1) + "' class='design'>";
                 htmlStr += "<h3>" + blog[j].title + "</h3>";
                 htmlStr += "<p>" + blog[j].content + "</p>";
                 htmlStr += "<h3>" + blog[j].categories + "</h3>";

@@ -1,10 +1,10 @@
-* {
-    background-color: #cb5516;
-}
+html {
+    box-sizing: border-box;
+    background-color: #5f1be0;
+    height: 100%;
+    margin: auto;
+    width: 960px;
 
-.wrapper {
-    margin: 0 auto;
-    width: 90%;
 }
 
 
@@ -12,18 +12,27 @@ header {
     width: 100%;
     max-width: 100%;
     position: fixed;
-    z-index: 999;
+    z-index: 1;
     background: transparent;
 }
+.container {
+    background-color: #5f1be0;
+}
+
+
 .jumbotron {
+    color: whitesmoke;
     background-color: rgba(0,0,0,0.7);
     background-size: cover;
     height: 200px;
 }
-.books {
-    /*background: #afeeee;*/
+.design {
+    background: whitesmoke;
     border: 5px solid black;
     border-radius: 25px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px black;
+    margin-bottom: 2em;
 }
 
 nav a {
@@ -32,7 +41,17 @@ nav a {
     padding: 10px 15px;
     text-decoration: none;
     color: white;
+
 }
+
+h1, h2 {
+    font-weight: bolder;
+}
+
+h3, p {
+    background-color: whitesmoke;
+}
+
 th {
     padding-right: 1em;
 }

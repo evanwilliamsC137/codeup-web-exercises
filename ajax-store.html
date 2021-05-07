@@ -17,12 +17,12 @@
         <div class="jumbotron jumbotron-fluid bg-transparent">
             <div class="container-fluid opaque-bg letter-opacity ">
                 <h1>My Tool Store</h1>
-                <p>Where being a tool is useful</p>
+                <h2>I sell tools and stuff</h2>
             </div>
         </div>
 
 
-        <table id="products">
+        <table id="products" class="design">
             <thead>
             <tr>
                 <th>Title</th>
@@ -31,7 +31,7 @@
                 <th>Categories</th>
             </tr>
             </thead>
-            <tbody id="insertProducts"></tbody>
+            <tbody id="insertProducts" class="bg-light"></tbody>
         </table>
         <button id="refresh" class="float-right bg-light">Refresh</button>
     </div>
@@ -50,7 +50,7 @@
         $.ajax("data/inventory.json").done(function(data) {
             console.log(data);
             for (var j = 0;j < data.length; j++) {
-                var htmlStr = "<tr id='data-" + (j + 1) + "' class='books'>";
+                var htmlStr = "<tr id='data-" + (j + 1) + "' class='design'>";
                 htmlStr += "<td>" + data[j].title + "</td>";
                 htmlStr += "<td>" + data[j].quantity + "</td>";
                 htmlStr += "<td>" + data[j].price + "</td>";

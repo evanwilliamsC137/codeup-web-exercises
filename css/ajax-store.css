@@ -20,6 +20,14 @@ header {
     background-size: cover;
     height: 200px;
 }
+.design {
+    background: whitesmoke;
+    border: 5px solid black;
+    border-radius: 25px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px black;
+    margin-bottom: 2em;
+}
 
 
 nav a {
@@ -28,6 +36,10 @@ nav a {
     padding: 10px 15px;
     text-decoration: none;
     color: white;
+}
+
+h1, h2 {
+    font-weight: bolder;
 }
 th {
     padding-right: 1em;
