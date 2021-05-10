@@ -79,14 +79,24 @@
     // });
 
     //    pop up variable
-    var popup = new mapboxgl.Popup()
-        .setLngLat(marker.getLngLat())
+
+
+    var bistro9 = new mapboxgl.Popup()
+        .setLngLat([-98.46651280016016, 29.484469133334155])
         .setHTML("<h3>Bistro9</h3>")
         .setMaxWidth("300px")
         .addTo(map);
+    marker.setPopup(bistro9);
 
-    marker.setPopup(popup);
-    // popup.addClassName('popup-font');
+    //
+    // marker.on("click", function () {
+    //
+    // })
+
+
+
+
+
 
     //geocode function
     geocode("San Antonio", MAPBOX_ACCESS_TOKEN).then(function (results) {
