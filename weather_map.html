@@ -7,13 +7,12 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
-<body>
+<body class="container">
 <h1>Weather Map</h1>
 <!--<div id='weather' style='width: 600px; height: 500px;'></div>-->
 
-<div class="row">
 
-    <div class="col-6">
+    <div class="d-inline-flex flex-row flex-wrap justify-content-between">
         <!--day 1 card-->
         <div class="card" style="width: 18rem;">
             <i class="fas fa-cloud-rain"></i>
@@ -90,28 +89,20 @@
         </div>
 
         <!--day 7 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-            <!--        <img src="..." class="card-img-top" alt="...">-->
-            <div class="card-body">
-                <h5 id="temp7" class="card-title"></h5>
-                <div id="description7" class="card-text"></div>
-                <div id="uvi7" class="card-text"></div>
-                <div id="date7" class="card-text"></div>
-            </div>
-        </div>
+<!--        <div class="card" style="width: 18rem;">-->
+<!--            <i class="fas fa-cloud-rain"></i>-->
+<!--            &lt;!&ndash;        <img src="..." class="card-img-top" alt="...">&ndash;&gt;-->
+<!--            <div class="card-body">-->
+<!--                <h5 id="temp7" class="card-title"></h5>-->
+<!--                <div id="description7" class="card-text"></div>-->
+<!--                <div id="uvi7" class="card-text"></div>-->
+<!--                <div id="date7" class="card-text"></div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 
-    <div class="col-6" id='map' style='width: 600px; height: 500px;'></div>
-</div>
-
-
-
-
-
-
-
+    <div id='map' style='width: 900px; height: 500px;'></div>
 
 
 <script src="https://kit.fontawesome.com/dd2c32b23e.js" crossorigin="anonymous"></script>
@@ -122,10 +113,11 @@
 <script>
 
 <!--   Api Call San Antonio -->
-    var coordinates = [29.4241, -98.4936];
+
+var coords = [-98.4951, 29.4246];
 
 function getWeather() {
-    $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
+    $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coords[1] + "&lon=" + coords[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
         console.log(weather);
 
         $('#temp1').html("Temp " + weather.daily[0].temp.day.toFixed() + " Degrees F")
@@ -158,38 +150,44 @@ function getWeather() {
         $('#uvi6').html("UVI: " + weather.daily[5].uvi)
         $('#date6').html(new Date(weather.daily[5].dt * 1000))
 
-        $('#temp7').html("Temp " + weather.daily[6].temp.day.toFixed() + " Degrees F")
-        $('#description7').html(weather.daily[6].weather[0].description)
-        $('#uvi7').html("UVI: " + weather.daily[6].uvi)
-        $('#date7').html(new Date(weather.daily[6].dt * 1000))
-    });
-}getWeather();
+        // $('#temp7').html("Temp " + weather.daily[6].temp.day.toFixed() + " Degrees F")
+        // $('#description7').html(weather.daily[6].weather[0].description)
+        // $('#uvi7').html("UVI: " + weather.daily[6].uvi)
+        // $('#date7').html(new Date(weather.daily[6].dt * 1000))
 
 
-
-
-    // Map Variable
-    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
-    var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/dark-v10', // style URL
-        center: [-98.4951, 29.4246], // starting position [lng, lat]
-        zoom: 10 // starting zoom
     });
 
 
-    //Marker Variable
-    var marker = new mapboxgl.Marker({
-        draggable: true,
-        color: 'green',
-    })
-        .setLngLat([-98.46651280016016, 29.484469133334155])
-        .addTo(map)
-        .setDraggable(true);
+}getWeather(coords);
 
-    marker.on("dragend", function () {
-        alert(marker.getLngLat());
-    })
+
+// Map Variable
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/dark-v10', // style URL
+    center: [-98.4951, 29.4246], // starting position [lng, lat]
+    zoom: 10 // starting zoom
+});
+
+//Marker Variable
+var marker = new mapboxgl.Marker({
+    draggable: true,
+    color: 'green',
+})
+    .setLngLat([-98.46651280016016, 29.484469133334155])
+    .addTo(map)
+    .setDraggable(true);
+
+marker.on("dragend", function () {
+    alert(marker.getLngLat());
+    coords[0] = marker.getLngLat().lng;
+    coords[1] = marker.getLngLat().lat;
+    getWeather(coords);
+})
+
+
 
 
 
@@ -202,10 +200,6 @@ function getWeather() {
 // $('#dayOneTemp').html(weather.data[0].low_temp.toString() + "℉ / " + weather.data[0].high_temp.toString() + "℉")
 // $('#dayOneDesc').html("Description : " + weather.data[0].weather.description.toString())
 // $('#dayOnePrecip').html("Chance of Precipitation: " + (parseFloat(weather.data[0].precip.toString())*100) + "%") })
-
-
-
-
 
 </script>
 </body>
