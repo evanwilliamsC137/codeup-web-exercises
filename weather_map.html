@@ -6,93 +6,106 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        html {
+            background-color: #a6aca6;
+        }
+    </style>
 </head>
 <body class="container">
 <h1>Weather Map</h1>
-<form>
-    <input id="input" type="text" placeholder="Search.." name="search">
-    <button id="button" type="submit"><i class="fa fa-search"></i></button>
-</form>
 
+    <div class="d-inline-flex flex-row flex-wrap justify-content-between container">
 
-    <div class="d-inline-flex flex-row flex-wrap justify-content-between">
         <!--day 1 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-        <!--        <img src="..." class="card-img-top" alt="...">-->
-            <div class="card-body">
-                <h5 id="temp1" class="card-title"></h5>
-                <div id="description1" class="card-text"></div>
-                <div id="uvi1" class="card-text"></div>
-                <div id="date1" class="card-text"></div>
+        <div class="card m-3 border-primary" style="width: 18rem;">
+                <div id="date1" class="card-text text-center"></div>
+                <h3 class="text-center">Today's weather</h3>
+                <div class="card-body">
+                    <img id="pic1" src="" class="card-img-top" alt="...">
+                    <h5 id="temp1" class="card-title"></h5>
+                    <div id="feels-like1" class="card-text"></div>
+                    <div id="description1" class="card-text"></div>
+                    <div id="uvi1" class="card-text"></div>
+                    <div id="humidity1" class="card-text"></div>
+                </div>
             </div>
-        </div>
-
 
         <!--day 2 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-        <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card m-3" style="width: 18rem;">
+            <div id="date2" class="card-text text-center"></div>
             <div class="card-body">
+                <img id="pic2" src="" class="card-img-top" alt="...">
                 <h5 id="temp2" class="card-title"></h5>
                 <div id="description2" class="card-text"></div>
                 <div id="uvi2" class="card-text"></div>
-                <div id="date2" class="card-text"></div>
+                <div id="humidity2" class="card-text"></div>
             </div>
         </div>
 
-
         <!--day 3 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-        <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card m-3" style="width: 18rem;">
+            <div id="date3" class="card-text text-center"></div>
             <div class="card-body">
+                <img id="pic3" src="" class="card-img-top" alt="...">
                 <h5 id="temp3" class="card-title"></h5>
                 <div id="description3" class="card-text"></div>
                 <div id="uvi3" class="card-text"></div>
-                <div id="date3" class="card-text"></div>
+                <div id="humidity3" class="card-text"></div>
             </div>
         </div>
 
-
         <!--day 4 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-        <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card m-3" style="width: 18rem;">
+            <div id="date4" class="card-text text-center"></div>
             <div class="card-body">
+                <img id="pic4" src="" class="card-img-top" alt="...">
                 <h5 id="temp4" class="card-title"></h5>
                 <div id="description4" class="card-text"></div>
                 <div id="uvi4" class="card-text"></div>
-                <div id="date4" class="card-text"></div>
+                <div id="humidity4" class="card-text"></div>
             </div>
         </div>
 
         <!--day 5 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-        <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card m-3" style="width: 18rem;">
+            <div id="date5" class="card-text text-center"></div>
             <div class="card-body">
+                <img id="pic5" src="" class="card-img-top" alt="...">
                 <h5 id="temp5" class="card-title"></h5>
                 <div id="description5" class="card-text"></div>
                 <div id="uvi5" class="card-text"></div>
-                <div id="date5" class="card-text"></div>
+                <div id="humidity5" class="card-text"></div>
             </div>
         </div>
 
         <!--day 6 card-->
-        <div class="card" style="width: 18rem;">
-            <i class="fas fa-cloud-rain"></i>
-            <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card m-3" style="width: 18rem;">
+            <div id="date6" class="card-text text-center"></div>
             <div class="card-body">
+                <img id="pic6" src="" class="card-img-top" alt="...">
                 <h5 id="temp6" class="card-title"></h5>
                 <div id="description6" class="card-text"></div>
                 <div id="uvi6" class="card-text"></div>
-                <div id="date6" class="card-text"></div>
+                <div id="humidity6" class="card-text"></div>
             </div>
         </div>
 
     </div>
-    <div id='map' style='width: 900px; height: 500px;'></div>
+
+<!--search bar-->
+<div class="d-flex justify-content-center">
+    <form>
+        <label for="input">Search</label>
+        <input id="input" type="text" placeholder="Search.." name="search">
+        <button id="button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+
+<!--Map Display-->
+<div class="d-flex justify-content-center mt-3">
+    <div id='map' style='width: 95%; height: 650px; position: center'></div>
+</div>
 
 <script src="https://kit.fontawesome.com/dd2c32b23e.js" crossorigin="anonymous"></script>
 <script src="js/jquery-3.6.0.js"></script>
@@ -104,58 +117,65 @@
 
 <!--   Api Call San Antonio -->
 
-var coords = [-98.4951, 29.4246];
+let coords = [-98.4951, 29.4246];
 
 function getWeather() {
     $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coords[1] + "&lon=" + coords[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
         console.log(weather);
 
-        $('#temp1').html("Temp " + weather.daily[0].temp.day.toFixed() + " Degrees F")
+        $('#pic1').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[0].weather[0].icon.toString() + ".png"))
+        $('#temp1').html("Temp " + weather.daily[0].temp.min.toFixed() + " / " + weather.daily[0].temp.max.toFixed() + " \t&#8457")
+        $('#feels-like1').html("Feels like: " + weather.daily[0].feels_like.day.toFixed() + "\t&#8457")
         $('#description1').html(weather.daily[0].weather[0].description)
         $('#uvi1').html("UVI: " + weather.daily[0].uvi)
+        $('#humidity1').html("Humidity: " + weather.daily[0].humidity + "%")
         $('#date1').html(new Date(weather.daily[0].dt * 1000))
 
-        $('#temp2').html("Temp " + weather.daily[1].temp.day.toFixed() + " Degrees F")
+        $('#pic2').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[1].weather[0].icon.toString() + ".png"))
+        $('#temp2').html("Temp " + weather.daily[1].temp.min.toFixed() + " / " + weather.daily[1].temp.max.toFixed() + " \t&#8457")
         $('#description2').html(weather.daily[1].weather[0].description)
         $('#uvi2').html("UVI: " + weather.daily[1].uvi)
+        $('#humidity2').html("Humidity: " + weather.daily[1].humidity + "%")
         $('#date2').html(new Date(weather.daily[1].dt * 1000))
 
-        $('#temp3').html("Temp " + weather.daily[2].temp.day.toFixed() + " Degrees F")
+        $('#pic3').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[2].weather[0].icon.toString() + ".png"))
+        $('#temp3').html("Temp " + weather.daily[2].temp.min.toFixed() + " / " + weather.daily[2].temp.max.toFixed() + " \t&#8457")
         $('#description3').html(weather.daily[2].weather[0].description)
         $('#uvi3').html("UVI: " + weather.daily[2].uvi)
+        $('#humidity3').html("Humidity: " + weather.daily[2].humidity + "%")
         $('#date3').html(new Date(weather.daily[2].dt * 1000))
 
-        $('#temp4').html("Temp " + weather.daily[3].temp.day.toFixed() + " Degrees F")
+        $('#pic4').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[3].weather[0].icon.toString() + ".png"))
+        $('#temp4').html("Temp " + weather.daily[3].temp.min.toFixed() + " / " + weather.daily[3].temp.max.toFixed() + " \t&#8457")
         $('#description4').html(weather.daily[3].weather[0].description)
         $('#uvi4').html("UVI: " + weather.daily[3].uvi)
+        $('#humidity4').html("Humidity: " + weather.daily[3].humidity + "%")
         $('#date4').html(new Date(weather.daily[3].dt * 1000))
 
-        $('#temp5').html("Temp " + weather.daily[4].temp.day.toFixed() + " Degrees F")
+        $('#pic5').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[4].weather[0].icon.toString() + ".png"))
+        $('#temp5').html("Temp " + weather.daily[4].temp.min.toFixed() + " / " + weather.daily[4].temp.max.toFixed() + " \t&#8457")
         $('#description5').html(weather.daily[4].weather[0].description)
         $('#uvi5').html("UVI: " + weather.daily[4].uvi)
+        $('#humidity5').html("Humidity: " + weather.daily[4].humidity + "%")
         $('#date5').html(new Date(weather.daily[4].dt * 1000))
 
-        $('#temp6').html("Temp " + weather.daily[5].temp.day.toFixed() + " Degrees F")
+        $('#pic6').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[5].weather[0].icon.toString() + ".png"))
+        $('#temp6').html("Temp " + weather.daily[5].temp.min.toFixed() + " / " + weather.daily[5].temp.max.toFixed() + " \t&#8457")
         $('#description6').html(weather.daily[5].weather[0].description)
         $('#uvi6').html("UVI: " + weather.daily[5].uvi)
+        $('#humidity6').html("Humidity: " + weather.daily[5].humidity + "%")
         $('#date6').html(new Date(weather.daily[5].dt * 1000))
 
-        // "    <img class='icons' src="http://openweathermap.org/img/wn/" + weatherData.daily[index].weather[0].icon + "@2x.png\n" class="card-img-top" alt="...">\n" +
-
-
     });
-
-
 }getWeather(coords);
-
 
 // Map Variable
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 var map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/dark-v10', // style URL
-    center: [-98.4951, 29.4246], // starting position [lng, lat]
-    zoom: 10 // starting zoom
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-98.4951, 29.4246],
+    zoom: 10
 });
 
 //Marker Variable
@@ -167,13 +187,14 @@ var marker = new mapboxgl.Marker({
     .addTo(map)
     .setDraggable(true);
 
+//Drag marker and update coordinates
 marker.on("dragend", function () {
-    alert(marker.getLngLat());
     coords[0] = marker.getLngLat().lng;
     coords[1] = marker.getLngLat().lat;
     getWeather(coords);
 })
 
+//geocode search and button click event
 $('#button').click(function (e) {
     e.preventDefault();
     geocode($('#input').val(), MAPBOX_ACCESS_TOKEN).then(function (results) {
@@ -183,8 +204,6 @@ $('#button').click(function (e) {
         marker.setLngLat(coords);
     })
 })
-
-
 
 </script>
 </body>
