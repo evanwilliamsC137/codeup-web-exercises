@@ -11,7 +11,7 @@
 <h1>Weather Map</h1>
 <form>
     <input id="input" type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
+    <button id="button" type="submit"><i class="fa fa-search"></i></button>
 </form>
 
 
@@ -174,14 +174,16 @@ marker.on("dragend", function () {
     getWeather(coords);
 })
 
-
-geocode("600 Navarro St #600, San Antonio, TX 78205", MAPBOX_ACCESS_TOKEN).then(function (results) {
-    console.log(results);
+$('#button').click(function (e) {
+    e.preventDefault();
+    geocode($('#input').val(), MAPBOX_ACCESS_TOKEN).then(function (results) {
+        coords = results;
+        getWeather(coords);
+        map.flyTo({center: coords})
+        marker.setLngLat(coords);
+    })
 })
 
-// geocode($('#input').val(), MAPBOX_ACCESS_TOKEN).then(function (result) {
-//     console.log(result);
-// });
 
 
 </script>

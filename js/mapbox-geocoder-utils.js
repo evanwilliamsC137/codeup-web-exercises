@@ -20,9 +20,10 @@ function geocode(search, token) {
         .then(function(res) {
             return res.json();
             // to get all the data from the request, comment out the following three lines...
-        }).then(function(data) {
-            return data.features[0].center;
-        });
+        })
+        // .then(function(data) {
+        //     return data.features[0].center;
+        // });
 }
 
 
