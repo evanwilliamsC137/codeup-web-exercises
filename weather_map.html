@@ -9,7 +9,10 @@
 </head>
 <body class="container">
 <h1>Weather Map</h1>
-<!--<div id='weather' style='width: 600px; height: 500px;'></div>-->
+<form>
+    <input id="input" type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
 
 
     <div class="d-inline-flex flex-row flex-wrap justify-content-between">
@@ -88,28 +91,15 @@
             </div>
         </div>
 
-        <!--day 7 card-->
-<!--        <div class="card" style="width: 18rem;">-->
-<!--            <i class="fas fa-cloud-rain"></i>-->
-<!--            &lt;!&ndash;        <img src="..." class="card-img-top" alt="...">&ndash;&gt;-->
-<!--            <div class="card-body">-->
-<!--                <h5 id="temp7" class="card-title"></h5>-->
-<!--                <div id="description7" class="card-text"></div>-->
-<!--                <div id="uvi7" class="card-text"></div>-->
-<!--                <div id="date7" class="card-text"></div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
-
-
     <div id='map' style='width: 900px; height: 500px;'></div>
-
 
 <script src="https://kit.fontawesome.com/dd2c32b23e.js" crossorigin="anonymous"></script>
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+
 <script>
 
 <!--   Api Call San Antonio -->
@@ -150,10 +140,7 @@ function getWeather() {
         $('#uvi6').html("UVI: " + weather.daily[5].uvi)
         $('#date6').html(new Date(weather.daily[5].dt * 1000))
 
-        // $('#temp7').html("Temp " + weather.daily[6].temp.day.toFixed() + " Degrees F")
-        // $('#description7').html(weather.daily[6].weather[0].description)
-        // $('#uvi7').html("UVI: " + weather.daily[6].uvi)
-        // $('#date7').html(new Date(weather.daily[6].dt * 1000))
+        // "    <img class='icons' src="http://openweathermap.org/img/wn/" + weatherData.daily[index].weather[0].icon + "@2x.png\n" class="card-img-top" alt="...">\n" +
 
 
     });
@@ -188,18 +175,14 @@ marker.on("dragend", function () {
 })
 
 
+geocode("600 Navarro St #600, San Antonio, TX 78205", MAPBOX_ACCESS_TOKEN).then(function (results) {
+    console.log(results);
+})
 
+// geocode($('#input').val(), MAPBOX_ACCESS_TOKEN).then(function (result) {
+//     console.log(result);
+// });
 
-
-
-// $.get("https://api.weatherbit.io/v2.0/forecast/daily?&days=5&units=I&lon=%22 + coords[0] + "&lat=" + coords[1] + "&key=46c03057a2e24304bf6ee0e0ff1fee55").done(function (weather) {
-// console.log(weather)
-//
-// $('#dayOneDate').html(weather.data[0].valid_date.toString())
-// $('#dayOneIcon').attr("src", ("img/weatherbit-icons/" + weather.data[0].weather.icon.toString() + ".png"))
-// $('#dayOneTemp').html(weather.data[0].low_temp.toString() + "℉ / " + weather.data[0].high_temp.toString() + "℉")
-// $('#dayOneDesc').html("Description : " + weather.data[0].weather.description.toString())
-// $('#dayOnePrecip').html("Chance of Precipitation: " + (parseFloat(weather.data[0].precip.toString())*100) + "%") })
 
 </script>
 </body>
