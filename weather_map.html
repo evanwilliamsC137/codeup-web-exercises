@@ -8,7 +8,8 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         html {
-            background-color: #a6aca6;
+            background: linear-gradient(-45deg, red, rebeccapurple, blue);
+            /*background-color: #a6aca6;*/
         }
     </style>
 </head>
@@ -103,7 +104,7 @@
 </div>
 
 <!--Map Display-->
-<div class="d-flex justify-content-center mt-3">
+<div class="d-flex justify-content-center mb-3">
     <div id='map' style='width: 95%; height: 650px; position: center'></div>
 </div>
 
@@ -117,7 +118,7 @@
 
 <!--   Api Call San Antonio -->
 
-let coords = [-98.4951, 29.4246];
+var coords = [-98.4951, 29.4246];
 
 function getWeather() {
     $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coords[1] + "&lon=" + coords[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
