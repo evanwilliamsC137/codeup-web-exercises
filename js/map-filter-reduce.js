@@ -42,3 +42,48 @@ console.log(under3);
 let emails = users.map((users) => (users.email));
 console.log(emails);
 
+let totalYears = users.reduce(function (accumulator, index) {
+    return accumulator + index.yearsOfExperience;
+},0)
+console.log("Total years of experience: " + totalYears);
+
+let averageYears = totalYears/users.length;
+console.log("Average years of experience: " + averageYears);
+
+//longhand
+let longestEmail = users.reduce(function (accumulator, user, index, userArray) {
+    if (index === userArray.length -1) {
+        accumulator.push(user.email);
+        accumulator.sort(function (email1,email2) {
+            return email2.length - email1.length;
+        });
+        return accumulator[0];
+    }else {
+        accumulator.push(user.email);
+        return accumulator;
+    }
+
+},[])
+
+//shorthand with email array
+// let longestEmail = users.reduce((a, b) => {
+//     return a.length > b.email.length ? a : b.email;
+// });
+
+console.log(longestEmail);
+
+let names = users.reduce(function (accumlulator, user) {
+    accumlulator.push(user.name);
+    return accumlulator;
+},[])
+console.log(names)
+
+let usersNames = users.reduce((accumulator, user, index, arr) => {
+    if (index === arr.length -1) {
+        accumulator += `${user.name}.`;
+    } else {
+        accumulator += `${user.name}, `;
+    }
+    return accumulator;
+},'Your instructors are: ');
+console.log(usersNames);
