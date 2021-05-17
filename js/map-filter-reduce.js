@@ -87,3 +87,19 @@ let usersNames = users.reduce((accumulator, user, index, arr) => {
     return accumulator;
 },'Your instructors are: ');
 console.log(usersNames);
+
+//Bonus
+let uniqueArray = users.reduce(function (nameArray, user, index, array) {
+    nameArray.push(...user.languages); //Using the .push(...Array) separates the array when we push it rather than pushing it normally, and using .push(Array), where we would get an array inside of an array.
+    // nameArray = nameArray.concat(user.languages); //Using the concat method we can combine arrays, back to back.
+    // nameArray = [...nameArray,...user.languages];
+    // console.log(nameArray);
+    if (index === array.length - 1) {
+        // return getUniqueValues(nameArray);
+        return [... new Set(nameArray)].sort(); // Set creates a new array with the unique values
+    } else {
+        return nameArray;
+        // return getUniqueValues(nameArray);
+    }
+}, []);
+console.log(uniqueArray);
