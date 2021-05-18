@@ -31,3 +31,5 @@ function wait(num) {
 
 wait(1000).then((message) => console.log(message));
 wait(3000).then((message) => console.log(message));
+
+
