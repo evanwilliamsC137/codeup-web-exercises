@@ -54,6 +54,20 @@
 
 
 
+    htmlStr += `<div>
+                    <img src="${movie.poster}" class="card-img-top" alt="...">
+                    <button class="btn btn-danger testD"data-value="${movie.id.toString()}">Remove Movie</button>
+                      <h5 class="card-title editTitle" contenteditable="true" >${movie.title}</h5>
+                      <p class="card-text editPlot" contenteditable="true">${movie.plot}</p>
+                    <button class="btn btn-info testE" data-value="${movie.id.toString()}">Edit Movie</button>
+
+                     <h3 class="list-group-item editRating"><span contenteditable="true">${movie.rating}</span> out of 5</h3>
+                     <p class="list-group-item editYear">Release year: <span contenteditable="true">${movie.year}</span></p>
+                     <h3 class="list-group-item editDirector">Directed by: <span contenteditable="true">${movie.director}</span></h3>
+                    </div>`
+    }
+    $("#container").html(htmlStr);
+
 </script>
 </body>
 </html>
