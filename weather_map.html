@@ -121,54 +121,24 @@
 var coords = [-98.4951, 29.4246];
 
 function getWeather() {
-    $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coords[1] + "&lon=" + coords[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
-        console.log(weather);
+  $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coords[1] + "&lon=" + coords[0] + "&exclude=current,hourly,minutely&appid=" + WEATHER_MAP_TOKEN).done(function (weather) {
+    console.log(weather);
 
-        $('#pic1').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[0].weather[0].icon.toString() + ".png"))
-        $('#temp1').html("Temp " + weather.daily[0].temp.min.toFixed() + " / " + weather.daily[0].temp.max.toFixed() + " \t&#8457")
-        $('#feels-like1').html("Feels like: " + weather.daily[0].feels_like.day.toFixed() + "\t&#8457")
-        $('#description1').html(weather.daily[0].weather[0].description)
-        $('#uvi1').html("UVI: " + weather.daily[0].uvi)
-        $('#humidity1').html("Humidity: " + weather.daily[0].humidity + "%")
-        $('#date1').html(new Date(weather.daily[0].dt * 1000))
+    for (let i = 0; i < 6; i++) {
+      const dailyWeather = weather.daily[i];
 
-        $('#pic2').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[1].weather[0].icon.toString() + ".png"))
-        $('#temp2').html("Temp " + weather.daily[1].temp.min.toFixed() + " / " + weather.daily[1].temp.max.toFixed() + " \t&#8457")
-        $('#description2').html(weather.daily[1].weather[0].description)
-        $('#uvi2').html("UVI: " + weather.daily[1].uvi)
-        $('#humidity2').html("Humidity: " + weather.daily[1].humidity + "%")
-        $('#date2').html(new Date(weather.daily[1].dt * 1000))
+      $('#pic' + (i + 1)).attr('src', "http://openweathermap.org/img/wn/" + dailyWeather.weather[0].icon.toString() + ".png");
+      $('#temp' + (i + 1)).html("Temp " + dailyWeather.temp.min.toFixed() + " / " + dailyWeather.temp.max.toFixed() + " \t&#8457");
+      $('#description' + (i + 1)).html(dailyWeather.weather[0].description);
+      $('#uvi' + (i + 1)).html("UVI: " + dailyWeather.uvi);
+      $('#humidity' + (i + 1)).html("Humidity: " + dailyWeather.humidity + "%");
+      $('#date' + (i + 1)).html(new Date(dailyWeather.dt * 1000));
+    }
+  });
+}
 
-        $('#pic3').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[2].weather[0].icon.toString() + ".png"))
-        $('#temp3').html("Temp " + weather.daily[2].temp.min.toFixed() + " / " + weather.daily[2].temp.max.toFixed() + " \t&#8457")
-        $('#description3').html(weather.daily[2].weather[0].description)
-        $('#uvi3').html("UVI: " + weather.daily[2].uvi)
-        $('#humidity3').html("Humidity: " + weather.daily[2].humidity + "%")
-        $('#date3').html(new Date(weather.daily[2].dt * 1000))
+getWeather(coords);
 
-        $('#pic4').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[3].weather[0].icon.toString() + ".png"))
-        $('#temp4').html("Temp " + weather.daily[3].temp.min.toFixed() + " / " + weather.daily[3].temp.max.toFixed() + " \t&#8457")
-        $('#description4').html(weather.daily[3].weather[0].description)
-        $('#uvi4').html("UVI: " + weather.daily[3].uvi)
-        $('#humidity4').html("Humidity: " + weather.daily[3].humidity + "%")
-        $('#date4').html(new Date(weather.daily[3].dt * 1000))
-
-        $('#pic5').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[4].weather[0].icon.toString() + ".png"))
-        $('#temp5').html("Temp " + weather.daily[4].temp.min.toFixed() + " / " + weather.daily[4].temp.max.toFixed() + " \t&#8457")
-        $('#description5').html(weather.daily[4].weather[0].description)
-        $('#uvi5').html("UVI: " + weather.daily[4].uvi)
-        $('#humidity5').html("Humidity: " + weather.daily[4].humidity + "%")
-        $('#date5').html(new Date(weather.daily[4].dt * 1000))
-
-        $('#pic6').attr('src',("http://openweathermap.org/img/wn/" + weather.daily[5].weather[0].icon.toString() + ".png"))
-        $('#temp6').html("Temp " + weather.daily[5].temp.min.toFixed() + " / " + weather.daily[5].temp.max.toFixed() + " \t&#8457")
-        $('#description6').html(weather.daily[5].weather[0].description)
-        $('#uvi6').html("UVI: " + weather.daily[5].uvi)
-        $('#humidity6').html("Humidity: " + weather.daily[5].humidity + "%")
-        $('#date6').html(new Date(weather.daily[5].dt * 1000))
-
-    });
-}getWeather(coords);
 
 // Map Variable
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
